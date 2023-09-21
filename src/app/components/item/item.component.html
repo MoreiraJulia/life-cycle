@@ -1,0 +1,14 @@
+<input
+  class="checkbox"
+  type="checkbox"
+  name="comprado"
+  id="comprado"
+  [checked]="item.comprado"
+  (change)="checarItem()">
+<p class="description" [class.line-through]>{{ item.nome }}</p>
+<!-- Aqui nesse ngIf ele está falando que se não estiver comprado pode exibir os icones, esse ponto ! tem como função negar algo, uma condição -->
+<div class="d-contents" *ngIf="!item.comprado">
+  <fa-icon class="delete-icon" [icon]="faTrash" (click)="deletarItem()" ></fa-icon>
+  <fa-icon class="edit-icon" (click)="editarItem()" [icon]="faPen" ></fa-icon>
+</div>
+<small class="date">{{ item.data }}</small>
